@@ -49,7 +49,7 @@ and [**SilkSpawners**](https://www.spigotmc.org/resources/silkspawners-%E2%98%85
 - Fully customizable messages (with options for your own language files!)
 
 The features above are just a glimpse of what the plugin is capable of. More detailed guides and 
-example setups can be found in the **[wiki](https://github.com/TavernCraft-Devs/SurvivalTop/wiki)**.
+example setups can be found in the **[wiki](https://github.com/tjtanjin/SurvivalTop/wiki)**.
 
 ### Technologies
 Technologies used by SurvivalTop are as below:
