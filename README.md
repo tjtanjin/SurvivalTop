@@ -37,7 +37,10 @@ Some of the key features provided by the plugin are as shown below:
 - Option to show leaderboard for groups
 - Option to set leaderboard signs + heads!
 - Option to store leaderboard (YAML/MySQL)
-- Support for spawners including but not limited to WildStackers, SpawnerMeta, MineableSpawners and SilkSpawners
+- Support for spawners including but not limited to [**WildStackers**](https://www.spigotmc.org/resources/%E2%9A%A1%EF%B8%8F-wildstacker-%E2%9A%A1%EF%B8%8F-spawners-entities-drops-blocks-%E2%9A%A1%EF%B8%8F-custom-spawn-conditions.60648/),
+[**SpawnerMeta**](https://www.spigotmc.org/resources/spawnermeta-fully-customizable-upgradable-modifiable-spawners-1-14-1-20.74188/),
+[**MineableSpawners**](https://www.spigotmc.org/resources/mineablespawners-1-8-1-20-silkspawners-alternative.59921/) 
+and [**SilkSpawners**](https://www.spigotmc.org/resources/silkspawners-%E2%98%85-ready-to-rock-1-8-1-20-1-supported-%E2%98%85.7811/)
 - PlaceholderAPI support **(requires  [PlaceholderAPI](https://www.spigotmc.org/resources/placeholderapi.6245/))**
 - Allow players to view their own stats/wealth
 - Allow players to view block/spawner/container/inventory item values info
@@ -45,7 +48,8 @@ Some of the key features provided by the plugin are as shown below:
 - Fully customizable leaderboard update intervals, hover interactions and more!
 - Fully customizable messages (with options for your own language files!)
 
-The features above are just a glimpse of what the plugin is capable of. More detailed guides and example setups can be found in our **[wiki](https://github.com/TavernCraft-Devs/SurvivalTop/wiki)**.
+The features above are just a glimpse of what the plugin is capable of. More detailed guides and 
+example setups can be found in the **[wiki](https://github.com/TavernCraft-Devs/SurvivalTop/wiki)**.
 
 ### Technologies
 Technologies used by SurvivalTop are as below:
@@ -60,7 +64,7 @@ Java
 
 ##### Project Repository
 ```
-https://github.com/TavernCraft-Devs/SurvivalTop
+https://github.com/tjtanjin/SurvivalTop
 ```
 
 ### Setup
@@ -68,7 +72,7 @@ Setting up the SurvivalTop project locally would involve the following steps:
 1)  First, `cd` to the directory of where you wish to store the project and fork/clone this repository. An example is provided below:
 ```
 $ cd /home/user/exampleuser/projects/
-$ git clone https://github.com/TavernCraft-Devs/SurvivalTop.git
+$ git clone https://github.com/tjtanjin/SurvivalTop.git
 ```
 2) Knowledge of resolving Maven dependencies are assumed here. This is the most tedious part of the setup since there are some plugin integrations that require you to build those JAR files and include them in the `lib` folder of this project.
 
@@ -79,7 +83,6 @@ mvn clean install
 If you are satisfied with your work and would like to contribute to the project, feel free to open a pull request! The forking workflow is preferred in this case so if you have the intention to contribute from the get-go, consider forking this repository before you start!
 
 ### Team
-Project Lead:
 * [Tan Jin](https://github.com/tjtanjin)
 
 ### Contributing
