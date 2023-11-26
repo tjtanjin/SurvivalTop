@@ -31,13 +31,19 @@ Some of the key features provided by the plugin are as shown below:
 - Option to include items in containers (e.g chest, hoppers) within land/claims in calculating wealth
 - Option to include items in player inventories in calculating wealth
 - Option to assign any values to all block/spawner/container/inventory item types for calculation of wealth
+- Option to use PAPI values in calculating wealth
+- Option to set calculation mode & heights to optimize performance
 - Option to show leaderboard for individual players
 - Option to show leaderboard for groups
 - Option to set leaderboard signs + heads!
 - Option to store leaderboard (YAML/MySQL)
-- Fully customizable messages (with options for your own language files!)
+- Support for spawners including but not limited to WildStackers, SpawnerMeta, MineableSpawners and SilkSpawners
 - PlaceholderAPI support **(requires  [PlaceholderAPI](https://www.spigotmc.org/resources/placeholderapi.6245/))**
-- Many more features explained on our **[wiki](https://github.com/TavernCraft-Devs/SurvivalTop/wiki)**!
+- Allow players to view their own stats/wealth
+- Allow players to view block/spawner/container/inventory item values info
+- Fully customizable UI!
+- Fully customizable leaderboard update intervals, hover interactions and more!
+- Fully customizable messages (with options for your own language files!)
 
 The features above are just a glimpse of what the plugin is capable of. More detailed guides and example setups can be found in our **[wiki](https://github.com/TavernCraft-Devs/SurvivalTop/wiki)**.
 
