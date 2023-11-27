@@ -153,7 +153,11 @@ public class MessageManager {
             return;
         }
 
-        sender.spigot().sendMessage(completeInteractiveLeaderboard[pageNum - 1]);
+        int index = pageNum - 1;
+        if (index >= completeInteractiveLeaderboard.length) {
+            index = completeInteractiveLeaderboard.length - 1;
+        }
+        sender.spigot().sendMessage(completeInteractiveLeaderboard[index]);
     }
 
     /**

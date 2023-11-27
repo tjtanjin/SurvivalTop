@@ -1,8 +1,7 @@
-
-  <h1 align="center">SurvivalTop</h1>
 <p align="center">
   <img width=300 src="https://i.imgur.com/nw8EwNU.png" />
 </p>
+<h1 align="center">SurvivalTop</h1>
 
 ## Table of Contents
 * [Introduction](#introduction)

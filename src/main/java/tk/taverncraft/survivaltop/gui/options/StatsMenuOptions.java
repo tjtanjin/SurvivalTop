@@ -290,15 +290,16 @@ public class StatsMenuOptions {
                 parsedLore.toArray(new String[0])));
 
             counter++;
-            slot = subPageItemSlots.get(counter);
 
             // next page
             if (counter == endCount) {
                 entityViews.add(entityView);
                 pageNum++;
-                slot = 10;
+                counter = 0;
                 entityView = getSubPageTemplate(entityName, pageNum, viewType);
             }
+
+            slot = subPageItemSlots.get(counter);
         }
         entityViews.add(entityView);
 
