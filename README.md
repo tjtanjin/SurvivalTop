@@ -13,9 +13,10 @@
 * [Others](#others)
 
 ### Introduction
-**SurvivalTop** is a spigot plugin that provides powerful wealth calculation features. If you are looking to get an accurate net worth of your players, then you have come to the right place! On top of being feature-rich, it supports integration with a wide range of other plugins, making itself available for many different users and boasting extremely flexible configurations. The plugin also does majority of its calculation tasks asynchronously, minimizing the performance impact that it can have on a server.
+**SurvivalTop** is a spigot plugin that provides powerful wealth calculation features. If you are looking to get an accurate net worth of your players, then you have come to the right place! On top of being feature-rich, it supports integration with a wide range of other plugins, making itself available for many different users and boasting extremely flexible configurations. The plugin also does majority of its calculation tasks asynchronously, minimizing the performance impact that it can have on a server. You may download the plugin via the following links:
 
-The spigot link to download the plugin can be found **[here](https://www.spigotmc.org/resources/survivaltop.96737/)**. If you require any assistance, please reach out for support on our **[discord](https://discord.gg/X8VSdZvBQY).** Alternatively, you may also open a github issue.
+- [Modrinth](https://modrinth.com/plugin/survivaltop)
+- [Spigot](https://www.spigotmc.org/resources/survivaltop.96737/)
 
 ### Features
 <p align="center">
