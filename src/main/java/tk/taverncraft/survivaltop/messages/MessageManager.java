@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.ClickEvent;
@@ -47,8 +49,7 @@ public class MessageManager {
         Set<String> messageKeysSet = lang.getConfigurationSection("").getKeys(false);
 
         for (String messageKey : messageKeysSet) {
-            messageKeysMap.put(messageKey, ChatColor.translateAlternateColorCodes('&',
-                    lang.get(messageKey).toString() + " "));
+            messageKeysMap.put(messageKey, formatMessageColor(lang.get(messageKey).toString() + " "));
         }
     }
 
@@ -343,6 +344,32 @@ public class MessageManager {
             textComponent.addExtra(bc);
         }
         return textComponent;
+    }
+
+    /**
+     * Formats color in chat messages.
+     *
+     * @param message message to format
+     */
+    private static String formatMessageColor(String message) {
+        Pattern pattern = Pattern.compile("(?<!\\\\)#[a-fA-F0-9]{6}");
+        Matcher matcher = pattern.matcher(message);
+        while (matcher.find()) {
+            String hexCode = message.substring(matcher.start(), matcher.end());
+            String replaceSharp = hexCode.replace('#', 'x');
+
+            char[] ch = replaceSharp.toCharArray();
+            StringBuilder builder = new StringBuilder("");
+            for (char c : ch) {
+                builder.append("&" + c);
+            }
+
+            message = message.replace(hexCode, builder.toString());
+            matcher = pattern.matcher(message);
+        }
+
+        message = message.replace("\\#", "#");
+        return ChatColor.translateAlternateColorCodes('&', message);
     }
 }
 

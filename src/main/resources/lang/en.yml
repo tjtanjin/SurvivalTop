@@ -2,6 +2,8 @@
 prefix: '&6[&bSurvivalTop&6] '
 
 # messages that support placeholders have them listed as comments on the right of the message
+# hexadeciaml color codes are also supported (e.g. #ff0000, #00ff00)
+# if you need # in your string but not as a color code, escape it with \ (e.g. \#hashtag)
 
 # general messages
 reload-success: '&aSurvivalTop has been reloaded!'
@@ -42,7 +44,7 @@ help-text: |
   &a/st top &b- view wealth leaderboard
   &a/st iteminfo &b- view item values for calculations
   &a/st update &b- manually trigger leaderboard update
-  &a/st help &b- list available commands
+  &a/st help &b- view the list of commands
   &a/st reload &b- reload the plugin
   &a/st dump &b- dump logs for debugging
 

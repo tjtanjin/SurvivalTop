@@ -10,3 +10,40 @@ commands:
   survivaltop:
     description: Base command for the plugin
     aliases: [st]
+permissions:
+  survtop.help:
+    description: View the list of commands
+    default: op
+  survtop.stats.self:
+    description: View your own wealth stats
+    default: op
+  survtop.gui.details.self:
+    description: View your own wealth stats breakdown in GUI
+    default: op
+  survtop.top:
+    description: View the wealth leaderboard
+    default: op
+  survtop.iteminfo:
+    description: View information on values of individual wealth items
+    default: op
+  survtop.stats.others:
+    description: View a specific player's wealth stats
+    default: op
+  survtop.gui.details.others:
+    description: View a specific player's wealth stats breakdown in GUI
+    default: op
+  survtop.update:
+    description: Trigger a leaderboard update
+    default: op
+  survtop.reload:
+    description: Reload the plugin
+    default: op
+  survtop.dump:
+    description: Dump logs for debugging
+    default: op
+  survtop.sign.add:
+    description: Allow creation of leaderboard signs
+    default: op
+  survtop.sign.remove:
+    description: Allow removal of leaderboard signs
+    default: op
