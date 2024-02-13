@@ -16,6 +16,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import tk.taverncraft.survivaltop.Main;
 import tk.taverncraft.survivaltop.gui.GuiUtils;
 import tk.taverncraft.survivaltop.gui.types.StatsGui;
+import tk.taverncraft.survivaltop.utils.StringUtils;
 import tk.taverncraft.survivaltop.utils.types.MutableInt;
 
 /**
@@ -207,7 +208,7 @@ public class StatsMenuOptions {
     public Inventory prepareMainPage(String entityName, HashMap<String, Double> wealthBreakdown) {
         String parsedName = GuiUtils.parseName(mainPageTitle, "%entity%", entityName);
         Inventory inv = Bukkit.createInventory(null, mainPageSize,
-                GuiUtils.parseWithColours(parsedName));
+                StringUtils.formatStringColor(parsedName));
         for (Map.Entry<Integer, ItemStack> map : mainPageBackground.entrySet()) {
             inv.setItem(map.getKey(), map.getValue());
         }
@@ -320,22 +321,22 @@ public class StatsMenuOptions {
         switch (viewType) {
         case "Block Stats":
             inv = Bukkit.createInventory(null, subPageSize, pageNumPrefix +
-                GuiUtils.parseName(GuiUtils.parseWithColours(subPageBlockTitle),
+                GuiUtils.parseName(StringUtils.formatStringColor(subPageBlockTitle),
                         "%entity%", entityName));
             break;
         case "Spawner Stats":
             inv = Bukkit.createInventory(null, subPageSize, pageNumPrefix +
-                GuiUtils.parseName(GuiUtils.parseWithColours(subPageSpawnerTitle),
+                GuiUtils.parseName(StringUtils.formatStringColor(subPageSpawnerTitle),
                         "%entity%", entityName));
             break;
         case "Container Stats":
             inv = Bukkit.createInventory(null, subPageSize, pageNumPrefix +
-                GuiUtils.parseName(GuiUtils.parseWithColours(subPageContainerTitle),
+                GuiUtils.parseName(StringUtils.formatStringColor(subPageContainerTitle),
                         "%entity%", entityName));
             break;
         default:
             inv = Bukkit.createInventory(null, subPageSize, pageNumPrefix +
-                GuiUtils.parseName(GuiUtils.parseWithColours(subPageInventoryTitle),
+                GuiUtils.parseName(StringUtils.formatStringColor(subPageInventoryTitle),
                         "%entity%", entityName));
             break;
         }

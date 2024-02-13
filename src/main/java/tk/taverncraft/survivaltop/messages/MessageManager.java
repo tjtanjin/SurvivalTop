@@ -6,8 +6,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.ClickEvent;
@@ -15,12 +13,12 @@ import net.md_5.bungee.api.chat.ComponentBuilder;
 import net.md_5.bungee.api.chat.HoverEvent;
 import net.md_5.bungee.api.chat.TextComponent;
 
-import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.util.ChatPaginator;
 
 import tk.taverncraft.survivaltop.cache.EntityCache;
+import tk.taverncraft.survivaltop.utils.StringUtils;
 import tk.taverncraft.survivaltop.utils.types.TextComponentPair;
 
 import static org.bukkit.util.ChatPaginator.GUARANTEED_NO_WRAP_CHAT_PAGE_WIDTH;
@@ -49,7 +47,7 @@ public class MessageManager {
         Set<String> messageKeysSet = lang.getConfigurationSection("").getKeys(false);
 
         for (String messageKey : messageKeysSet) {
-            messageKeysMap.put(messageKey, formatMessageColor(lang.get(messageKey).toString() + " "));
+            messageKeysMap.put(messageKey, StringUtils.formatStringColor(lang.get(messageKey).toString() + " "));
         }
     }
 
@@ -344,32 +342,6 @@ public class MessageManager {
             textComponent.addExtra(bc);
         }
         return textComponent;
-    }
-
-    /**
-     * Formats color in chat messages.
-     *
-     * @param message message to format
-     */
-    private static String formatMessageColor(String message) {
-        Pattern pattern = Pattern.compile("(?<!\\\\)#[a-fA-F0-9]{6}");
-        Matcher matcher = pattern.matcher(message);
-        while (matcher.find()) {
-            String hexCode = message.substring(matcher.start(), matcher.end());
-            String replaceSharp = hexCode.replace('#', 'x');
-
-            char[] ch = replaceSharp.toCharArray();
-            StringBuilder builder = new StringBuilder("");
-            for (char c : ch) {
-                builder.append("&" + c);
-            }
-
-            message = message.substring(0, matcher.start()) + builder.toString() + message.substring(matcher.end());
-            matcher = pattern.matcher(message);
-        }
-
-        message = message.replace("\\#", "#");
-        return ChatColor.translateAlternateColorCodes('&', message);
     }
 }
 

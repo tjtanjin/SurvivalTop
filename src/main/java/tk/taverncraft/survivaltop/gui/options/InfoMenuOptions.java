@@ -17,6 +17,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import tk.taverncraft.survivaltop.Main;
 import tk.taverncraft.survivaltop.gui.GuiUtils;
 import tk.taverncraft.survivaltop.gui.types.InfoGui;
+import tk.taverncraft.survivaltop.utils.StringUtils;
 
 /**
  * InfoMenuOptions loads all configured menu options for info pages.
@@ -199,7 +200,7 @@ public class InfoMenuOptions {
      */
     public Inventory prepareMainPage() {
         Inventory inv = Bukkit.createInventory(null, mainPageSize,
-                GuiUtils.parseWithColours(mainPageTitle));
+                StringUtils.formatStringColor(mainPageTitle));
         for (Map.Entry<Integer, ItemStack> map : mainPageBackground.entrySet()) {
             inv.setItem(map.getKey(), map.getValue());
         }
@@ -281,19 +282,19 @@ public class InfoMenuOptions {
         switch (viewType) {
         case "Block Info":
             inv = Bukkit.createInventory(null, subPageSize, pageNumPrefix +
-                GuiUtils.parseWithColours(subPageBlockTitle));
+                StringUtils.formatStringColor(subPageBlockTitle));
             break;
         case "Spawner Info":
             inv = Bukkit.createInventory(null, subPageSize, pageNumPrefix +
-                GuiUtils.parseWithColours(subPageSpawnerTitle));
+                StringUtils.formatStringColor(subPageSpawnerTitle));
             break;
         case "Container Info":
             inv = Bukkit.createInventory(null, subPageSize, pageNumPrefix +
-                GuiUtils.parseWithColours(subPageContainerTitle));
+                StringUtils.formatStringColor(subPageContainerTitle));
             break;
         default:
             inv = Bukkit.createInventory(null, subPageSize, pageNumPrefix +
-                GuiUtils.parseWithColours(subPageInventoryTitle));
+                StringUtils.formatStringColor(subPageInventoryTitle));
             break;
         }
 

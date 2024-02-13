@@ -11,6 +11,7 @@ import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import tk.taverncraft.survivaltop.utils.StringUtils;
 
 /**
  * GuiUtils contains generic functions that helps in creating a GUI.
@@ -48,7 +49,7 @@ public class GuiUtils {
 
         // Set the name of the item
         if (name != null) {
-            meta.setDisplayName(parseWithColours(name));
+            meta.setDisplayName(StringUtils.formatStringColor(name));
         }
 
         // Set the lore of the item
@@ -65,17 +66,6 @@ public class GuiUtils {
     }
 
     /**
-     * Parse colour for a string.
-     *
-     * @param text string to parse colour for
-     *
-     * @return string with parsed colours
-     */
-    public static String parseWithColours(String text) {
-        return ChatColor.translateAlternateColorCodes('&', text);
-    }
-
-    /**
      * Parse colour for strings.
      *
      * @param lore lore to parse colour for
@@ -85,7 +75,7 @@ public class GuiUtils {
     private static List<String> parseWithColours(String[] lore) {
         List<String> colouredLore = new ArrayList<>();
         for (String line : lore) {
-            colouredLore.add(parseWithColours(line));
+            colouredLore.add(StringUtils.formatStringColor(line));
         }
         return colouredLore;
     }
