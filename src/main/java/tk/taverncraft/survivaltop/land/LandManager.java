@@ -62,6 +62,9 @@ public class LandManager {
         case "townyadvanced":
             landClaimPluginHandler = new TownyAdvancedHandler(main, landProcessor);
             return;
+        case "plotsquared":
+            landClaimPluginHandler = new PlotSquaredHandler(main, landProcessor);
+            return;
         default:
             landClaimPluginHandler = new GriefPreventionHandler(main, landProcessor);
         }

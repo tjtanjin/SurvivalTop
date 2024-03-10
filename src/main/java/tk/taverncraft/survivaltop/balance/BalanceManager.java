@@ -46,7 +46,7 @@ public class BalanceManager {
     private double getBalanceByPlayer(String name) {
         OfflinePlayer player = Bukkit.getOfflinePlayer(name);
         try {
-            return Main.getEconomy().getBalance(player);
+            return main.getEconomy().getBalance(player);
         }
          catch (Exception | NoClassDefFoundError e) {
             // vault might throw an error here related to null user, removeTask when resolved
@@ -66,7 +66,7 @@ public class BalanceManager {
             double totalBalance = 0;
             List<OfflinePlayer> offlinePlayers = this.main.getGroupManager().getPlayers(group);
             for (OfflinePlayer offlinePlayer : offlinePlayers) {
-                totalBalance += Main.getEconomy().getBalance(offlinePlayer);
+                totalBalance += main.getEconomy().getBalance(offlinePlayer);
             }
             return totalBalance;
         } catch (NoClassDefFoundError | NullPointerException e) {

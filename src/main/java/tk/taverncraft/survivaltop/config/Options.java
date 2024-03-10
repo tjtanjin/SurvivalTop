@@ -55,6 +55,7 @@ public class Options {
     private boolean useInteractiveLeaderboard;
     private List<String> commandsOnStart;
     private List<String> commandsOnEnd;
+    private List<String> leaderboardBlackList;
 
     // storage configurations
     private String storageType;
@@ -111,6 +112,7 @@ public class Options {
         this.useInteractiveLeaderboard = config.getBoolean("use-interactive-leaderboard", false);
         this.commandsOnStart = config.getStringList("commands-on-start");
         this.commandsOnEnd = config.getStringList("commands-on-end");
+        this.leaderboardBlackList = config.getStringList("leaderboard-blacklist");
         this.storageType = config.getString("storage-type", "None");
         this.host = config.getString("host", "127.0.0.1");
         this.port = config.getString("port", "3306");
@@ -234,6 +236,10 @@ public class Options {
 
     public List<String> getCommandsOnEnd() {
         return commandsOnEnd;
+    }
+
+    public List<String> getLeaderboardBlackList() {
+        return leaderboardBlackList;
     }
 
     public String getStorageType() {

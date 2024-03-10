@@ -160,7 +160,7 @@ public class SignHelper {
             Directional dir = (Directional) sign.getBlockData();
             dir.setFacing(BlockFace.valueOf(direction));
         }
-        String signFormat = MessageManager.getSignFormat(new String[]{"%entity%", "%totalwealth%"},
+        String signFormat = MessageManager.getSignFormat(new String[]{"%entity%", "%total-wealth%"},
                 new String[]{name, wealth});
         String[] signArr = signFormat.split("\n", 2);
 

@@ -166,6 +166,12 @@ commands-on-start:
 commands-on-end:
   - broadcast &aSurvivalTop leaderboard update has been completed!
 
+# blacklist of entities that will not show up on leaderboard
+# if enable-group is false, this refers to player names
+# if enable-group is true, this refers to group names
+leaderboard-blacklist:
+  - FruznFever
+
 #####################################################################################
 #                                                                                   #
 #                               Storage Configurations                              #

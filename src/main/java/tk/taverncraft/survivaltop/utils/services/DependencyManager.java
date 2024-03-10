@@ -30,6 +30,7 @@ public class DependencyManager {
         put("mcmmoparty", "mcMMO");
         put("parties", "Parties");
         put("saberfactions", "Factions");
+        put("plotsquared", "PlotSquared");
     }};
 
     /**

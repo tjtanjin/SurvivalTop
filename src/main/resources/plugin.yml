@@ -3,7 +3,8 @@ version: ${project.version}
 main: tk.taverncraft.survivaltop.Main
 author: tjtanjin - FrozenFever
 softdepend: [GriefPrevention, Residence, UltimateClaims, GriefDefender, Kingdoms, CrashClaim,
-             Factions, Towny, RedProtect, Parties, mcMMO, RoseStacker, Vault, PlaceholderAPI]
+             Factions, Towny, RedProtect, Parties, mcMMO, RoseStacker, Vault, PlaceholderAPI,
+             PlotSquared]
 description: A simple plugin to calculate player wealth in land!
 api-version: 1.13
 commands:

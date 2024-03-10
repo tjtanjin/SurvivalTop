@@ -137,6 +137,7 @@ public class LeaderboardManager {
         // path for if last join filter is off or if last join time is set <= 0 (cannot filter)
         if (!main.getOptions().filterLastJoin() || lastJoinTime <= 0) {
             leaderboardTaskQueue = Arrays.stream(this.main.getServer().getOfflinePlayers())
+                    .filter(p -> !main.getOptions().getLeaderboardBlackList().contains(p.getName()))
                     .map(OfflinePlayer::getName).iterator();
             return;
         }
@@ -145,7 +146,8 @@ public class LeaderboardManager {
         Instant instant = Instant.now();
         long currentTime = instant.getEpochSecond() * 1000;
         leaderboardTaskQueue = Arrays.stream(this.main.getServer().getOfflinePlayers())
-                .filter(p -> currentTime - p.getLastPlayed() <= lastJoinTime)
+                .filter(p -> (currentTime - p.getLastPlayed() <= lastJoinTime)
+                        && !main.getOptions().getLeaderboardBlackList().contains(p.getName()))
                 .map(OfflinePlayer::getName).iterator();
     }
 
@@ -154,14 +156,15 @@ public class LeaderboardManager {
      */
     private void setTaskQueueForGroups() {
         List<String> groups = this.main.getGroupManager().getGroups();
-        leaderboardTaskQueue = groups.iterator();
+        leaderboardTaskQueue = groups.stream()
+                .filter(g -> !main.getOptions().getLeaderboardBlackList().contains(g))
+                .iterator();
     }
 
     /**
      * Callback function for updating leaderboard message and leaderboard signs.
      *
      * @param sender user executing the update
-     * @param tempSortedCache temporary cache for sorted player wealth to set the leaderboard
      */
     public void completeLeaderboardUpdate(CommandSender sender) {
         ArrayList<EntityCache> entityCacheList = main.getCacheManager().getEntityCacheList();
