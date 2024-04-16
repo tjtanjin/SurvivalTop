@@ -65,6 +65,9 @@ public class LandManager {
         case "plotsquared":
             landClaimPluginHandler = new PlotSquaredHandler(main, landProcessor);
             return;
+        case "lands":
+            landClaimPluginHandler = new LandsHandler(main, landProcessor);
+            return;
         default:
             landClaimPluginHandler = new GriefPreventionHandler(main, landProcessor);
         }

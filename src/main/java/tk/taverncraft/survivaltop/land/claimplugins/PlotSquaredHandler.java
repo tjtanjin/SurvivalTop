@@ -26,7 +26,7 @@ public class PlotSquaredHandler implements LandClaimPluginHandler {
     private final LandProcessor landProcessor;
 
     /**
-     * Constructor for GriefPreventionHandler.
+     * Constructor for PlotSquaredHandler.
      *
      * @param main plugin class
      * @param landProcessor helper for land calculations
@@ -67,13 +67,15 @@ public class PlotSquaredHandler implements LandClaimPluginHandler {
         try {
             Set<Plot> plots = getClaims(name);
             for (Plot plot: plots) {
-                CuboidRegion region = plot.getLargestRegion();
-                BlockVector3 pos1 = region.getPos1();
-                BlockVector3 pos2 = region.getPos2();
-                World world = Bukkit.getWorld(plot.getWorldName());
-                Location loc1 = new Location(world, pos1.getX(), pos1.getY(), pos1.getZ());
-                Location loc2 = new Location(world, pos2.getX(), pos2.getY(), pos2.getZ());
-                processEntityClaim(id, loc1, loc2, world);
+                Set<CuboidRegion> regions = plot.getRegions();
+                for (CuboidRegion region : regions) {
+                    BlockVector3 pos1 = region.getPos1();
+                    BlockVector3 pos2 = region.getPos2();
+                    World world = Bukkit.getWorld(plot.getWorldName());
+                    Location loc1 = new Location(world, pos1.getX(), pos1.getY(), pos1.getZ());
+                    Location loc2 = new Location(world, pos2.getX(), pos2.getY(), pos2.getZ());
+                    processEntityClaim(id, loc1, loc2, world);
+                }
             }
         } catch (NoClassDefFoundError | NullPointerException ignored) {
         }

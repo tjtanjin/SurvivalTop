@@ -45,8 +45,7 @@ public class TopCommand {
         if (main.getOptions().isUseInteractiveLeaderboard()) {
             MessageManager.showInteractiveLeaderboard(sender, pageNum);
         } else {
-            MessageManager.showLeaderboard(sender, pageNum,
-                    main.getOptions().getLeaderboardPositionsPerPage());
+            MessageManager.showLeaderboard(sender, pageNum);
         }
         return true;
     }

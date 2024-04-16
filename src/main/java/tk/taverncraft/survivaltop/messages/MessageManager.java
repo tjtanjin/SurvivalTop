@@ -15,13 +15,10 @@ import net.md_5.bungee.api.chat.TextComponent;
 
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.util.ChatPaginator;
 
 import tk.taverncraft.survivaltop.cache.EntityCache;
 import tk.taverncraft.survivaltop.utils.StringUtils;
 import tk.taverncraft.survivaltop.utils.types.TextComponentPair;
-
-import static org.bukkit.util.ChatPaginator.GUARANTEED_NO_WRAP_CHAT_PAGE_WIDTH;
 
 /**
  * MessageManager handles all formatting and sending of messages to the command sender.
@@ -30,7 +27,7 @@ public class MessageManager {
     private static final HashMap<String, String> messageKeysMap = new HashMap<>();
 
     // used if leaderboard is not interactive
-    private static String completeLeaderboard;
+    private static ArrayList<String> completeLeaderboard;
 
     // used if leaderboard is interactive
     private static BaseComponent[][] completeInteractiveLeaderboard;
@@ -127,16 +124,17 @@ public class MessageManager {
      * @param sender sender to send message to
      * @param pageNum page number of leaderboard
      */
-    public static void showLeaderboard(CommandSender sender, int pageNum, int linesPerPage) {
+    public static void showLeaderboard(CommandSender sender, int pageNum) {
         if (completeLeaderboard == null) {
             sendMessage(sender, "no-updated-leaderboard");
             return;
         }
 
-        ChatPaginator.ChatPage page = ChatPaginator.paginate(completeLeaderboard, pageNum,
-                GUARANTEED_NO_WRAP_CHAT_PAGE_WIDTH, linesPerPage + 2);
-        for (String line : page.getLines()) {
-            sender.sendMessage(line);
+        int index = pageNum - 1;
+        if (pageNum > completeLeaderboard.size()) {
+            sender.sendMessage(completeLeaderboard.get(completeLeaderboard.size() - 1));
+        } else {
+            sender.sendMessage(completeLeaderboard.get(index));
         }
     }
 
@@ -168,10 +166,12 @@ public class MessageManager {
      */
     public static void setUpLeaderboard(ArrayList<EntityCache> entityCacheList,
             double minimumWealth, int positionsPerPage) {
+
+        completeLeaderboard = new ArrayList<>();
         String header = messageKeysMap.get("leaderboard-header");
         String footer = messageKeysMap.get("leaderboard-footer");
         String messageTemplate = messageKeysMap.get("leaderboard-body");
-        StringBuilder message = new StringBuilder(header);
+        StringBuilder message = new StringBuilder();
         int position = 1;
         int currentPage = 1;
         for (EntityCache eCache : entityCacheList) {
@@ -187,6 +187,10 @@ public class MessageManager {
                 continue;
             }
 
+            if (position % positionsPerPage == 1) {
+                message = new StringBuilder(header + "\n");
+            }
+
             String entry = messageTemplate.replaceAll("%num%", String.valueOf(position))
                 .replaceAll("%entity%", name)
                 .replaceAll("%wealth%", new BigDecimal(wealth).setScale(2,
@@ -195,11 +199,11 @@ public class MessageManager {
             if (position % positionsPerPage == 0) {
                 currentPage++;
                 message.append(footer.replaceAll("%page%", String.valueOf(currentPage)));
-                message.append(header);
+                completeLeaderboard.add(message.toString());
             }
             position++;
         }
-        completeLeaderboard = message.toString();
+        completeLeaderboard.add(message.toString());
     }
 
     /**

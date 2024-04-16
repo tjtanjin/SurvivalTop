@@ -31,6 +31,7 @@ public class DependencyManager {
         put("parties", "Parties");
         put("saberfactions", "Factions");
         put("plotsquared", "PlotSquared");
+        put("lands", "Lands");
     }};
 
     /**
