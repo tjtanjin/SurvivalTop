@@ -150,6 +150,13 @@ public class PapiManager extends PlaceholderExpansion {
         try {
             return Double.parseDouble(strValue);
         } catch (Exception e) {
+            // handle cases where there are extra chars in placeholder
+            strValue = strValue.replaceAll("[^\\d.]+(?=[^\\d.]*$)", "");
+        }
+
+        try {
+            return Double.parseDouble(strValue);
+        } catch (Exception e) {
             return 0;
         }
     }
